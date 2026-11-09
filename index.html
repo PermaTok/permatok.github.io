@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Which Latent Representations Support Object-Permanent Generation?</title>
+
+  <!-- No favicon (keeps the page anonymous; also stops the browser requesting /favicon.ico). -->
+  <link rel="icon" href="data:,">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <style>
+    .video-row {
+      margin-bottom: 0.5rem; /* Adjust this to make rows tighter or looser */
+    }
+    .header-row {
+      margin-bottom: 0.5rem;
+    }
+    .header-row .column {
+      font-weight: bold;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    @media screen and (max-width: 768px) {
+      .header-row .column {
+        font-size: 0.7rem;
+        padding: 0 2px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+
+          <h1 class="title is-1 publication-title">
+            Which Latent Representations Support Object-Permanent Generation?
+          </h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Anonymous Authors</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teaser: add an image or video to ./static/images or ./static/videos and point src at it. -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay controls muted loop playsinline width="100%">
+        <source src="./static/videos/teaser.mp4" type="video/mp4">
+      </video>
+      <p class="has-text">
+        Teaser caption.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Abstract text.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Grid of synchronized videos: one header row, then one .video-row per example. -->
+<section class="section is-centered">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Section title.</h2>
+    <div class="content has-text-justified">
+      <p>
+        Section description.
+      </p>
+      <ul>
+        <li><strong>Row 1:</strong> Description of row 1.</li>
+      </ul>
+    </div>
+
+    <div class="columns is-centered is-mobile is-variable is-1 header-row">
+      <div class="column">Column 1</div>
+      <div class="column">Column 2</div>
+      <div class="column">Column 3</div>
+      <div class="column">Column 4</div>
+    </div>
+
+    <div class="columns is-centered is-mobile is-variable is-1 video-row">
+      <div class="column">
+        <video autoplay controls muted loop playsinline width="100%"><source src="./static/videos/example1/col1.mp4" type="video/mp4"></video>
+      </div>
+      <div class="column">
+        <video autoplay controls muted loop playsinline width="100%"><source src="./static/videos/example1/col2.mp4" type="video/mp4"></video>
+      </div>
+      <div class="column">
+        <video autoplay controls muted loop playsinline width="100%"><source src="./static/videos/example1/col3.mp4" type="video/mp4"></video>
+      </div>
+      <div class="column">
+        <video autoplay controls muted loop playsinline width="100%"><source src="./static/videos/example1/col4.mp4" type="video/mp4"></video>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Side-by-side comparison: add one video to each column per example. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Section title.</h2>
+    <div class="content has-text-justified">
+      <p>
+        Section description.
+      </p>
+    </div>
+
+    <div class="columns is-centered is-mobile">
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-4">Baseline</h2>
+          <video autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/example2_baseline.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-4">Ours</h2>
+          <video autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/example2_ours.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="content has-text-centered">
+    This website is borrowed from <a href="https://github.com/nerfies/nerfies.github.io" target="_blank">nerfies</a>.
+  </div>
+</footer>
+
+</body>
+</html>
