@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -13,30 +13,37 @@
         rel="stylesheet">
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
 
   <style>
     .video-row {
-      margin-bottom: 0.5rem; /* Adjust this to make rows tighter or looser */
+      margin-bottom: 1rem !important;
+    }
+    .video-row video {
+      display: block;
+      width: 100%;
+      cursor: pointer;
+      background: #000;
+      aspect-ratio: 1 / 1;
     }
     .header-row {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.25rem;
     }
     .header-row .column {
       font-weight: bold;
       text-align: center;
       font-size: 0.9rem;
+    }
+    .mobile-label {
+      display: block;
+      font-weight: bold;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+    .subsection-title {
+      margin-top: 1.5rem;
     }
     @media screen and (max-width: 768px) {
       .header-row .column {
@@ -59,9 +66,7 @@
             Which Latent Representations Support Object-Permanent Generation?
           </h1>
 
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">Anonymous Authors</span>
-          </div>
+          <p class="is-size-3 has-text-weight-bold" style="margin-top:1.5rem">Qualitative video results.</p>
 
         </div>
       </div>
@@ -69,99 +74,197 @@
   </div>
 </section>
 
-<!-- Teaser: add an image or video to ./static/images or ./static/videos and point src at it. -->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video id="teaser" autoplay controls muted loop playsinline width="100%">
-        <source src="./static/videos/teaser.mp4" type="video/mp4">
-      </video>
-      <p class="has-text">
-        Teaser caption.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Abstract text.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Grid of synchronized videos: one header row, then one .video-row per example. -->
 <section class="section is-centered">
   <div class="container is-max-desktop">
-    <h2 class="title is-3">Section title.</h2>
-    <div class="content has-text-justified">
-      <p>
-        Section description.
-      </p>
-      <ul>
-        <li><strong>Row 1:</strong> Description of row 1.</li>
-      </ul>
-    </div>
+    <h2 class="title is-3">Object-permanent generation.</h2>
 
-    <div class="columns is-centered is-mobile is-variable is-1 header-row">
-      <div class="column">Column 1</div>
-      <div class="column">Column 2</div>
-      <div class="column">Column 3</div>
-      <div class="column">Column 4</div>
+    <h3 class="title is-4 subsection-title">Static camera</h3>
+    <div class="columns is-centered is-variable is-1 header-row is-hidden-mobile">
+      <div class="column">GT</div>
+      <div class="column">SD-VAE</div>
+      <div class="column">WF-VAE</div>
+      <div class="column">PermaTok (ours)</div>
     </div>
-
-    <div class="columns is-centered is-mobile is-variable is-1 video-row">
-      <div class="column">
-        <video autoplay controls muted loop playsinline width="100%"><source src="./static/videos/example1/col1.mp4" type="video/mp4"></video>
+    <div class="columns is-centered is-mobile is-multiline is-variable is-1 video-row">
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">GT</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/generation/e300_k3_fix_L5-6_2612/gt.jpg" aria-label="GT, e300_k3_fix_L5-6_2612"><source src="./static/videos/generation/e300_k3_fix_L5-6_2612/gt.mp4" type="video/mp4"></video>
       </div>
-      <div class="column">
-        <video autoplay controls muted loop playsinline width="100%"><source src="./static/videos/example1/col2.mp4" type="video/mp4"></video>
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">SD-VAE</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/generation/e300_k3_fix_L5-6_2612/sdvae.jpg" aria-label="SD-VAE, e300_k3_fix_L5-6_2612"><source src="./static/videos/generation/e300_k3_fix_L5-6_2612/sdvae.mp4" type="video/mp4"></video>
       </div>
-      <div class="column">
-        <video autoplay controls muted loop playsinline width="100%"><source src="./static/videos/example1/col3.mp4" type="video/mp4"></video>
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">WF-VAE</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/generation/e300_k3_fix_L5-6_2612/wfvae.jpg" aria-label="WF-VAE, e300_k3_fix_L5-6_2612"><source src="./static/videos/generation/e300_k3_fix_L5-6_2612/wfvae.mp4" type="video/mp4"></video>
       </div>
-      <div class="column">
-        <video autoplay controls muted loop playsinline width="100%"><source src="./static/videos/example1/col4.mp4" type="video/mp4"></video>
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">PermaTok (ours)</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/generation/e300_k3_fix_L5-6_2612/permatok.jpg" aria-label="PermaTok (ours), e300_k3_fix_L5-6_2612"><source src="./static/videos/generation/e300_k3_fix_L5-6_2612/permatok.mp4" type="video/mp4"></video>
       </div>
     </div>
+    <div class="columns is-centered is-mobile is-multiline is-variable is-1 video-row">
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">GT</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/generation/e300_k5_fix_L3-4_3540/gt.jpg" aria-label="GT, e300_k5_fix_L3-4_3540"><source src="./static/videos/generation/e300_k5_fix_L3-4_3540/gt.mp4" type="video/mp4"></video>
+      </div>
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">SD-VAE</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/generation/e300_k5_fix_L3-4_3540/sdvae.jpg" aria-label="SD-VAE, e300_k5_fix_L3-4_3540"><source src="./static/videos/generation/e300_k5_fix_L3-4_3540/sdvae.mp4" type="video/mp4"></video>
+      </div>
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">WF-VAE</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/generation/e300_k5_fix_L3-4_3540/wfvae.jpg" aria-label="WF-VAE, e300_k5_fix_L3-4_3540"><source src="./static/videos/generation/e300_k5_fix_L3-4_3540/wfvae.mp4" type="video/mp4"></video>
+      </div>
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">PermaTok (ours)</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/generation/e300_k5_fix_L3-4_3540/permatok.jpg" aria-label="PermaTok (ours), e300_k5_fix_L3-4_3540"><source src="./static/videos/generation/e300_k5_fix_L3-4_3540/permatok.mp4" type="video/mp4"></video>
+      </div>
+    </div>
+    <div class="columns is-centered is-mobile is-multiline is-variable is-1 video-row">
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">GT</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/generation/e300_k5_fix_L5-6_3602/gt.jpg" aria-label="GT, e300_k5_fix_L5-6_3602"><source src="./static/videos/generation/e300_k5_fix_L5-6_3602/gt.mp4" type="video/mp4"></video>
+      </div>
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">SD-VAE</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/generation/e300_k5_fix_L5-6_3602/sdvae.jpg" aria-label="SD-VAE, e300_k5_fix_L5-6_3602"><source src="./static/videos/generation/e300_k5_fix_L5-6_3602/sdvae.mp4" type="video/mp4"></video>
+      </div>
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">WF-VAE</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/generation/e300_k5_fix_L5-6_3602/wfvae.jpg" aria-label="WF-VAE, e300_k5_fix_L5-6_3602"><source src="./static/videos/generation/e300_k5_fix_L5-6_3602/wfvae.mp4" type="video/mp4"></video>
+      </div>
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">PermaTok (ours)</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/generation/e300_k5_fix_L5-6_3602/permatok.jpg" aria-label="PermaTok (ours), e300_k5_fix_L5-6_3602"><source src="./static/videos/generation/e300_k5_fix_L5-6_3602/permatok.mp4" type="video/mp4"></video>
+      </div>
+    </div>
 
+    <h3 class="title is-4 subsection-title">Moving camera</h3>
+    <div class="columns is-centered is-variable is-1 header-row is-hidden-mobile">
+      <div class="column">GT</div>
+      <div class="column">SD-VAE</div>
+      <div class="column">WF-VAE</div>
+      <div class="column">PermaTok (ours)</div>
+    </div>
+    <div class="columns is-centered is-mobile is-multiline is-variable is-1 video-row">
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">GT</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/generation/e300_k1_mov_L5-6_1140/gt.jpg" aria-label="GT, e300_k1_mov_L5-6_1140"><source src="./static/videos/generation/e300_k1_mov_L5-6_1140/gt.mp4" type="video/mp4"></video>
+      </div>
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">SD-VAE</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/generation/e300_k1_mov_L5-6_1140/sdvae.jpg" aria-label="SD-VAE, e300_k1_mov_L5-6_1140"><source src="./static/videos/generation/e300_k1_mov_L5-6_1140/sdvae.mp4" type="video/mp4"></video>
+      </div>
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">WF-VAE</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/generation/e300_k1_mov_L5-6_1140/wfvae.jpg" aria-label="WF-VAE, e300_k1_mov_L5-6_1140"><source src="./static/videos/generation/e300_k1_mov_L5-6_1140/wfvae.mp4" type="video/mp4"></video>
+      </div>
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">PermaTok (ours)</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/generation/e300_k1_mov_L5-6_1140/permatok.jpg" aria-label="PermaTok (ours), e300_k1_mov_L5-6_1140"><source src="./static/videos/generation/e300_k1_mov_L5-6_1140/permatok.mp4" type="video/mp4"></video>
+      </div>
+    </div>
+    <div class="columns is-centered is-mobile is-multiline is-variable is-1 video-row">
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">GT</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/generation/e300_k5_mov_L5-6_3763/gt.jpg" aria-label="GT, e300_k5_mov_L5-6_3763"><source src="./static/videos/generation/e300_k5_mov_L5-6_3763/gt.mp4" type="video/mp4"></video>
+      </div>
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">SD-VAE</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/generation/e300_k5_mov_L5-6_3763/sdvae.jpg" aria-label="SD-VAE, e300_k5_mov_L5-6_3763"><source src="./static/videos/generation/e300_k5_mov_L5-6_3763/sdvae.mp4" type="video/mp4"></video>
+      </div>
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">WF-VAE</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/generation/e300_k5_mov_L5-6_3763/wfvae.jpg" aria-label="WF-VAE, e300_k5_mov_L5-6_3763"><source src="./static/videos/generation/e300_k5_mov_L5-6_3763/wfvae.mp4" type="video/mp4"></video>
+      </div>
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">PermaTok (ours)</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/generation/e300_k5_mov_L5-6_3763/permatok.jpg" aria-label="PermaTok (ours), e300_k5_mov_L5-6_3763"><source src="./static/videos/generation/e300_k5_mov_L5-6_3763/permatok.mp4" type="video/mp4"></video>
+      </div>
+    </div>
+    <div class="columns is-centered is-mobile is-multiline is-variable is-1 video-row">
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">GT</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/generation/e300_k1_mov_L3-4_0869/gt.jpg" aria-label="GT, e300_k1_mov_L3-4_0869"><source src="./static/videos/generation/e300_k1_mov_L3-4_0869/gt.mp4" type="video/mp4"></video>
+      </div>
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">SD-VAE</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/generation/e300_k1_mov_L3-4_0869/sdvae.jpg" aria-label="SD-VAE, e300_k1_mov_L3-4_0869"><source src="./static/videos/generation/e300_k1_mov_L3-4_0869/sdvae.mp4" type="video/mp4"></video>
+      </div>
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">WF-VAE</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/generation/e300_k1_mov_L3-4_0869/wfvae.jpg" aria-label="WF-VAE, e300_k1_mov_L3-4_0869"><source src="./static/videos/generation/e300_k1_mov_L3-4_0869/wfvae.mp4" type="video/mp4"></video>
+      </div>
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">PermaTok (ours)</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/generation/e300_k1_mov_L3-4_0869/permatok.jpg" aria-label="PermaTok (ours), e300_k1_mov_L3-4_0869"><source src="./static/videos/generation/e300_k1_mov_L3-4_0869/permatok.mp4" type="video/mp4"></video>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- Side-by-side comparison: add one video to each column per example. -->
-<section class="section">
+<section class="section is-centered">
   <div class="container is-max-desktop">
-    <h2 class="title is-3">Section title.</h2>
-    <div class="content has-text-justified">
-      <p>
-        Section description.
-      </p>
+    <h2 class="title is-3">Latent probing.</h2>
+    <div class="columns is-centered is-variable is-1 header-row is-hidden-mobile">
+      <div class="column">GT (amodal mask)</div>
+      <div class="column">PermaTok</div>
+      <div class="column">PermaTok-SC</div>
+      <div class="column">PermaTok-R</div>
     </div>
-
-    <div class="columns is-centered is-mobile">
-      <div class="column">
-        <div class="content">
-          <h2 class="title is-4">Baseline</h2>
-          <video autoplay controls muted loop playsinline width="100%">
-            <source src="./static/videos/example2_baseline.mp4" type="video/mp4">
-          </video>
-        </div>
+    <div class="columns is-centered is-mobile is-multiline is-variable is-1 video-row">
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">GT (amodal mask)</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/probing/scene_1829_fix07/gt.jpg" aria-label="GT (amodal mask), scene_1829_fix07"><source src="./static/videos/probing/scene_1829_fix07/gt.mp4" type="video/mp4"></video>
       </div>
-      <div class="column">
-        <div class="content">
-          <h2 class="title is-4">Ours</h2>
-          <video autoplay controls muted loop playsinline width="100%">
-            <source src="./static/videos/example2_ours.mp4" type="video/mp4">
-          </video>
-        </div>
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">PermaTok</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/probing/scene_1829_fix07/permatok.jpg" aria-label="PermaTok, scene_1829_fix07"><source src="./static/videos/probing/scene_1829_fix07/permatok.mp4" type="video/mp4"></video>
+      </div>
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">PermaTok-SC</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/probing/scene_1829_fix07/permatok_sc.jpg" aria-label="PermaTok-SC, scene_1829_fix07"><source src="./static/videos/probing/scene_1829_fix07/permatok_sc.mp4" type="video/mp4"></video>
+      </div>
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">PermaTok-R</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/probing/scene_1829_fix07/permatok_r.jpg" aria-label="PermaTok-R, scene_1829_fix07"><source src="./static/videos/probing/scene_1829_fix07/permatok_r.mp4" type="video/mp4"></video>
+      </div>
+    </div>
+    <div class="columns is-centered is-mobile is-multiline is-variable is-1 video-row">
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">GT (amodal mask)</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/probing/scene_1934_mov07/gt.jpg" aria-label="GT (amodal mask), scene_1934_mov07"><source src="./static/videos/probing/scene_1934_mov07/gt.mp4" type="video/mp4"></video>
+      </div>
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">PermaTok</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/probing/scene_1934_mov07/permatok.jpg" aria-label="PermaTok, scene_1934_mov07"><source src="./static/videos/probing/scene_1934_mov07/permatok.mp4" type="video/mp4"></video>
+      </div>
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">PermaTok-SC</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/probing/scene_1934_mov07/permatok_sc.jpg" aria-label="PermaTok-SC, scene_1934_mov07"><source src="./static/videos/probing/scene_1934_mov07/permatok_sc.mp4" type="video/mp4"></video>
+      </div>
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">PermaTok-R</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/probing/scene_1934_mov07/permatok_r.jpg" aria-label="PermaTok-R, scene_1934_mov07"><source src="./static/videos/probing/scene_1934_mov07/permatok_r.mp4" type="video/mp4"></video>
+      </div>
+    </div>
+    <div class="columns is-centered is-mobile is-multiline is-variable is-1 video-row">
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">GT (amodal mask)</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/probing/scene_1877_mov07/gt.jpg" aria-label="GT (amodal mask), scene_1877_mov07"><source src="./static/videos/probing/scene_1877_mov07/gt.mp4" type="video/mp4"></video>
+      </div>
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">PermaTok</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/probing/scene_1877_mov07/permatok.jpg" aria-label="PermaTok, scene_1877_mov07"><source src="./static/videos/probing/scene_1877_mov07/permatok.mp4" type="video/mp4"></video>
+      </div>
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">PermaTok-SC</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/probing/scene_1877_mov07/permatok_sc.jpg" aria-label="PermaTok-SC, scene_1877_mov07"><source src="./static/videos/probing/scene_1877_mov07/permatok_sc.mp4" type="video/mp4"></video>
+      </div>
+      <div class="column is-half-mobile">
+        <span class="mobile-label is-hidden-tablet">PermaTok-R</span>
+        <video muted playsinline preload="metadata" poster="./static/videos/probing/scene_1877_mov07/permatok_r.jpg" aria-label="PermaTok-R, scene_1877_mov07"><source src="./static/videos/probing/scene_1877_mov07/permatok_r.mp4" type="video/mp4"></video>
       </div>
     </div>
   </div>
